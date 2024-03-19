@@ -27,12 +27,12 @@ jobs:
 
     - name: Login to Amazon ECR
       id: login-ecr
-      uses: ultimatixarup/ideap@v1
+      uses: 983317116818.dkr.ecr.us-east-1.amazonaws.com
 
     - name: Build, tag, and push docker image to Amazon ECR
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: devopshint
+        REPOSITORY: asml-ideap
         IMAGE_TAG: latest
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
